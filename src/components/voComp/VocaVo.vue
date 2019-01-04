@@ -19,7 +19,7 @@ export default {
 .wrapper
     box-sizing border-box
     width 100%
-    min-height 20vh 
+    min-height 23.75vh 
     padding 1em
     $botmSol()
     div

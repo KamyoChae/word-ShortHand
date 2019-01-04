@@ -14,6 +14,7 @@ export default {
 @import "../../assets/css/util.styl";
 .wrapper
     width 100vw
+    height 6.25vh
     box-sizing border-box
     padding 1.2em 1.5em
     background $mainColor

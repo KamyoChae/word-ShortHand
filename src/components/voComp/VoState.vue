@@ -1,12 +1,14 @@
 <template>
     <div class="wrapper">
-        <button>试试拼写</button>
+        <button>上一个</button>
+        <button>OK</button>
+        <button>下一个</button>
     </div>
 </template>
 
 <script>
 export default {
-    name:"VoPing"
+    name:"VoState"
 }
 </script>
 
@@ -15,11 +17,11 @@ export default {
 .wrapper
     box-sizing border-box
     height 12vh
-    $botmSol()
-    text-align center
+    $botmSol() 
     $center()
     button
-        width 60%
+        width 20%
+        margin 0 .3em
         height 3em 
         padding .6em 
         background #ffffff
