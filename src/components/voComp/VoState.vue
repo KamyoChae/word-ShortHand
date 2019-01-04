@@ -1,14 +1,47 @@
 <template>
     <div class="wrapper">
-        <button>上一个</button>
-        <button>OK</button>
-        <button>下一个</button>
+        <button @click = "pre">上一个</button>
+        <button @click = "ok">OK</button>
+        <button @click = "next">下一个</button>
     </div>
 </template>
 
 <script>
 export default {
-    name:"VoState"
+    name:"VoState", 
+    props:["index", "length"],
+    data(){
+        return{
+
+        }
+    },
+    mounted() {
+        console.log(this.index, this.length)
+    },
+
+    methods: {
+        pre(){
+            var index = this.index
+            console.log(index)
+            if(index !== 0){
+                let num = index-- 
+               this.$store.dispatch("checkState", num)
+            }
+
+        },
+        ok(){},
+        next(){
+            var index = this.index
+            var len = this.length
+            console.log(index)
+            if(index !== len -1){
+                let num = index++ 
+               this.$store.dispatch("checkState", num)
+            }
+
+        }
+    },
+ 
 }
 </script>
 

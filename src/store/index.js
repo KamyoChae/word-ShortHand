@@ -7,10 +7,13 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state : {
-        showModel:false,
-        str:"",
-        wantCreateWord: false,
-    },  
+        showModel:false, // 是否显示模态框
+        str:"", // 字符串
+        wantCreateWord: false, // 是否想创建词汇
+        wordStr:"", // 输入的字符串
+        struct:null, // 数据结构
+        structItem:null, // 渲染存储对象
+    },
     actions:{
         changeModel(ctx, str){
             ctx.commit("changeModel", str)
@@ -23,6 +26,18 @@ export default new Vuex.Store({
         },
         createWord(ctx,str){
             ctx.commit("createWord",str)
+        },
+        getWord(ctx, str){
+            ctx.commit("getWord", str)
+        },
+        createdStruct(ctx, struct){
+            ctx.commit("createdStruct", struct)
+        },
+
+        checkState(ctx, index){
+            // 这里选择上一个 ok 下一个 点击事件
+            console.log("checkState:::"+index)
+            ctx.commit("_createStructItem", index)
         }
     },
     mutations:{
@@ -35,6 +50,7 @@ export default new Vuex.Store({
             state.showModel = false
             state.str = ""
             state.wantCreateWord = false
+            // state.wordStr = "" // 这里会进行一个本地存储的读取作为初始化
         },
         closeModel(state){
             state.showModel = false
@@ -43,6 +59,24 @@ export default new Vuex.Store({
             state.str = str
             state.showModel = true
             state.wantCreateWord = true
+
+
+        },
+        getWord(state, str){
+            state.wordStr = str
+        },
+
+        createdStruct(state, struct){
+            state.struct = struct
+
+            let index = 0
+            this.commit("_createStructItem", index)
+        },
+        _createStructItem(state, index){
+
+            state.structItem = state.struct[index]
+            console.log(index)
+            console.log(state.struct[index])
         }
     }
 })

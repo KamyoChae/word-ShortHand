@@ -1,12 +1,14 @@
 <template>
     <div class="wrapper">
-        120s
+        {{time}}s
     </div>
 </template>
 
 <script>
 export default {
-    name:"VoTime"
+    name:"VoTime",
+    props:["time"],
+
 }
 </script>
 

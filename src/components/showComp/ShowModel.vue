@@ -28,6 +28,8 @@ export default {
             this.$router.push("/")
         },
         toCreatedWord(){
+            // 创建词库
+
             this.$router.push("/vocabu")
         }
 

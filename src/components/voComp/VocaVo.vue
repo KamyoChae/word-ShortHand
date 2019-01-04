@@ -1,17 +1,23 @@
 <template>
     <div class="wrapper">
         <div class="vocabu-en">
-            vocabulary vocabulary vocabulary
+            {{word}}
         </div>
         <div class="vocabu-zh">
-            词汇
+            {{des}}
         </div>  
     </div>
 </template>
 
 <script>
 export default {
-    name:"VocaVo"
+    name:"VocaVo",
+    props:["word","des"],
+    data(){
+        return{ 
+        }
+    },
+
 }
 </script>
 <style lang="stylus" scoped>

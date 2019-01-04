@@ -1,13 +1,18 @@
 <template>
     <div class="wrapper">
         <span>当前进度</span>
-        <div>10 / 99</div>
+        <div>{{index +1}} / {{length}}</div>
     </div>
 </template>
 
 <script>
 export default {
-    name:"VoLine"
+    name:"VoLine",
+    props:["index", "length"],
+    date(){
+        return{ 
+        }
+    },
 }
 </script>
 

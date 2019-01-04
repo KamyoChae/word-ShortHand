@@ -3,7 +3,7 @@
         <ShowModel/>
         <index-title></index-title>
         <div class="index-body">
-            <input type="text" name="" id="" placeholder="请粘贴...">
+            <input type="text" name="" id="" placeholder="请粘贴..." v-model="wordStr">
 
             <div class="btn-group"> 
                 
@@ -21,13 +21,20 @@ import ShowModel from "./showComp/ShowModel"
 import IndexTitle from "./titleComp/title"
 export default {
     name:"index",
+    data(){
+        return{
+            wordStr:""
+        }
+    },
     components:{
         IndexTitle,
         ShowModel
     },
+ 
     methods: {
         createWord(){
             this.$store.dispatch("createWord","确定生成词汇吗？")
+            this.$store.dispatch("getWord", this.wordStr)
         }
     },
     mounted() {
