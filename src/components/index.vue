@@ -9,7 +9,7 @@
                 
                 <button class="btn" @click = "createWord">生成词汇</button>
                 <router-link to="/vocabu">
-                <button class="btn">马上开始</button>
+                    <button class="btn">马上开始</button>
                 </router-link>
             </div>
         </div>

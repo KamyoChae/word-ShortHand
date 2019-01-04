@@ -38,7 +38,10 @@ export default {
 
         console.log("装载："+this.$store.state.showModel)
         this.$store.dispatch("initModel")
+
+        
     },
+
 }
 </script>
 
