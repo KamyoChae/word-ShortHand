@@ -1,12 +1,18 @@
 <template>
     <div class="wrapper">
-        <span>单词速记神器</span>
+       <span  @click="goIndex">单词速记神器</span>
+        
     </div>
 </template>
 
 <script>
 export default {
-    name:"IndexTitle"
+    name:"IndexTitle",
+    methods: {
+        goIndex(){
+            this.$store.dispatch("changeModel","确定返回首页吗？")
+        }
+    },
 }
 </script>
 

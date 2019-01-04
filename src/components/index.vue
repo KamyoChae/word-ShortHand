@@ -1,12 +1,13 @@
 <template>
     <div class="wrapper">
+        <ShowModel/>
         <index-title></index-title>
         <div class="index-body">
             <input type="text" name="" id="" placeholder="请粘贴...">
 
             <div class="btn-group"> 
                 
-                <button class="btn">生成词汇</button>
+                <button class="btn" @click = "createWord">生成词汇</button>
                 <router-link to="/vocabu">
                 <button class="btn">马上开始</button>
                 </router-link>
@@ -16,12 +17,24 @@
 </template>
 
 <script>
+import ShowModel from "./showComp/ShowModel"
 import IndexTitle from "./titleComp/title"
 export default {
     name:"index",
     components:{
-        IndexTitle
-    }
+        IndexTitle,
+        ShowModel
+    },
+    methods: {
+        createWord(){
+            this.$store.dispatch("createWord","确定生成词汇吗？")
+        }
+    },
+    mounted() {
+
+        console.log("装载："+this.$store.state.showModel)
+        this.$store.dispatch("initModel")
+    },
 }
 </script>
 
