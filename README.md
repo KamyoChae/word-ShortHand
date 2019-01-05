@@ -21,11 +21,16 @@ npm run build --report
 # word-ShortHand
 一款单词速记小工具
 
+# 首页 可以直接粘贴格式生成题库  issues 写了个简单的算法
 ![](https://github.com/KamyoChae/word-ShortHand/blob/master/1%20(5).png)
-![](https://github.com/KamyoChae/word-ShortHand/blob/master/1%20(1).png)
 
-![](https://github.com/KamyoChae/word-ShortHand/blob/master/1%20(4).png)
-![](https://github.com/KamyoChae/word-ShortHand/blob/master/1%20(2).png)
+#
 ![](https://github.com/KamyoChae/word-ShortHand/blob/master/1%20(3).png)
-
+#
+![](https://github.com/KamyoChae/word-ShortHand/blob/master/1%20(4).png)
+#
+![](https://github.com/KamyoChae/word-ShortHand/blob/master/1%20(2).png)
+#
+![](https://github.com/KamyoChae/word-ShortHand/blob/master/1%20(1).png)
+#
 ![](https://github.com/KamyoChae/word-ShortHand/blob/master/1%20(1).jpg)
