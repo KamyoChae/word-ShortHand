@@ -12,7 +12,9 @@ export default {
     props:["index", "length"],
     data(){
         return{
-
+            mapIndex:0,
+            mapLength:0,
+            flag:true
         }
     },
     mounted() {
@@ -21,22 +23,40 @@ export default {
 
     methods: {
         pre(){
-            var index = this.index
-            console.log(index)
-            if(index !== 0){
-                let num = index-- 
-               this.$store.dispatch("checkState", num)
+            if(this.flag){ 
+                this.mapIndex = this.index
+                this.mapLength = this.length  
+                this.flag = false
+            }
+
+            this.mapIndex --
+            // console.log("outpre::::::::::::"+this.mapIndex , this.mapLength)
+            if(this.mapIndex >= 0){
+                // console.log("inpre::::::::::::"+this.mapIndex , this.mapLength)
+                var num = this.mapIndex  
+                this.$store.dispatch("checkState", num)
+            }else{
+                this.mapIndex = 0
             }
 
         },
         ok(){},
         next(){
-            var index = this.index
-            var len = this.length
-            console.log(index)
-            if(index !== len -1){
-                let num = index++ 
+            if(this.flag){ 
+                this.mapIndex = this.index
+                this.mapLength = this.length  
+                this.flag = false
+            }
+             
+            this.mapIndex ++  
+            // console.log("outnext::::::::::::"+this.mapIndex , this.mapLength)
+            if(this.mapIndex <= this.mapLength-1){ 
+                //  console.log("innext::::::::::::"+this.mapIndex , this.mapLength)
+                var num = this.mapIndex 
+                   
                this.$store.dispatch("checkState", num)
+            }else{
+                this.mapIndex = this.mapLength-1
             }
 
         }

@@ -29,7 +29,7 @@ export default {
         },
         toCreatedWord(){
             // 创建词库
-
+            console.log(5555555)
             this.$router.push("/vocabu")
         }
 

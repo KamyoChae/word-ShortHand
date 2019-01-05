@@ -79,7 +79,7 @@ export default {
         this.$store.dispatch("initModel")
         this.timing()
 
-        console.log(this.$store.state.structItem)
+        console.log("vacabu mounted-structItem:" , this.$store.state.structItem)
         try {
             this.index = this.$store.state.structItem.index
             this.length = this.$store.state.struct.length
@@ -95,6 +95,7 @@ export default {
         clearInterval(this.timer)
     },
     beforeMount() {
+        console.log("beforeMount")
         try {
             let str = this.$store.state.wordStr
             console.log("输入框的字符串已提出")
@@ -106,6 +107,17 @@ export default {
         let Struct = this.createDataStruct(arr) 
         this.$store.dispatch("createdStruct", Struct)
          
+    },
+    updated() {
+        console.log("update")
+        try {
+            this.index = this.$store.state.structItem.index
+            this.length = this.$store.state.struct.length
+            this.word = this.$store.state.structItem.word
+            this.des = this.$store.state.structItem.des
+        } catch (error) {
+            
+        }
     },
   
 

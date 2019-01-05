@@ -68,14 +68,14 @@ export default new Vuex.Store({
 
         createdStruct(state, struct){
             state.struct = struct
-
-            let index = 0
-            this.commit("_createStructItem", index)
+            console.log("触发了createStrus")
+            this.commit("_createStructItem", 1)
         },
         _createStructItem(state, index){
 
-            state.structItem = state.struct[index]
+            
             console.log(index)
+            state.structItem = state.struct[index]
             console.log(state.struct[index])
         }
     }
