@@ -4,16 +4,16 @@
             <div class="items">
                 <div class="count-item">
                     <span class="text">拼错次数</span>
-                    <span class="num error">5</span>
+                    <span class="num error">{{this.$store.state.structItem.inputError}}</span>
                 </div>
                 <div class="count-item">
                     <span class="text">放心次数</span>
-                    <span class="num success">5</span>
+                    <span class="num success">{{this.$store.state.structItem.isOK}}</span>
                 </div>
                 <div class="count-item">
-                    <span class="text">健忘次数</span>
+                    <span class="text">走神次数</span>
                     <div>
-                        <span class="num danger">5</span>
+                        <span class="num danger">{{this.$store.state.structItem.lose}}</span>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,6 @@
                 </div>
             </div>
 
-
         </div>
 
     </div>
@@ -50,7 +49,15 @@
 
 <script>
 export default {
-    name:"VoCount"
+    name:"VoCount",
+    data(){
+        return{}
+    }, 
+    mounted() {
+        this.$store.state.structItem.isOK = 0
+        console.log(this.$store.state.structItem)
+    },
+    
 }
 </script>
 

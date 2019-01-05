@@ -14,7 +14,7 @@
 
 <script>
 export default {
-    name:"goIndex",
+    name:"ShowModel",
     data(){
         return { 
         }
@@ -48,15 +48,7 @@ export default {
     background rgba(0,0,0,0.7)
     $center()
     .show
-        box-sizing border-box
-        padding 2em 0
-        width 70%
-        height 0
-        padding-bottom 40%
-        border-radius $radius
-        background #ffffff 
-        text-align center 
-        font-size 1.5em
+        $showModel()
         .btn
             width 100% 
             margin-top 20%

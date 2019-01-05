@@ -1,6 +1,7 @@
 <template>
     <div class="wrap">
         <ShowModel/>
+        <PingModel/>
         <IndexTitle/>
         <VocaVo :word="word" :des="des"/>
         <VoPing/>
@@ -22,6 +23,8 @@ import VoState from "./voComp/VoState"
 import VoTime from "./voComp/VoTime"
 
 import ShowModel from "./showComp/ShowModel"
+import PingModel from "./showComp/PingModel"
+
 export default {
     name:"vocabu",
     data(){
@@ -36,6 +39,7 @@ export default {
     },
     components:{
         ShowModel,
+        PingModel,
         IndexTitle,
         VocaVo,
         VoPing,
@@ -67,7 +71,6 @@ export default {
                     newObj["index"] = index  
                     newArr.push(newObj) 
                 }
-                          
             });
             console.log(newArr)
             return newArr
@@ -100,8 +103,7 @@ export default {
             let str = this.$store.state.wordStr
             console.log("输入框的字符串已提出")
             var arr = str.split("。") 
-        } catch (error) {
-            
+        } catch (error) { 
         }
         
         let Struct = this.createDataStruct(arr) 

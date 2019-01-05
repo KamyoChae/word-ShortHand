@@ -40,7 +40,11 @@ export default {
             }
 
         },
-        ok(){},
+        ok(){
+            console.log("click OK")
+
+            this.$store.dispatch("clickOk", this.mapIndex)
+        },
         next(){
             if(this.flag){ 
                 this.mapIndex = this.index
@@ -49,6 +53,8 @@ export default {
             }
              
             this.mapIndex ++  
+            
+            this.$store.dispatch("clickNext") // 取消走神计时
             // console.log("outnext::::::::::::"+this.mapIndex , this.mapLength)
             if(this.mapIndex <= this.mapLength-1){ 
                 //  console.log("innext::::::::::::"+this.mapIndex , this.mapLength)

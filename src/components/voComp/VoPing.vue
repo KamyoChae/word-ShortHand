@@ -1,12 +1,18 @@
 <template>
     <div class="wrapper">
-        <button>试试拼写</button>
+        <button @click = "ping">试试拼写</button>
     </div>
 </template>
 
 <script>
 export default {
-    name:"VoPing"
+    name:"VoPing",
+    methods: {
+        ping(){
+            this.$store.dispatch("pingModel")
+            this.$store.dispatch("clearTimer") // 取消走神计时
+        }
+    },
 }
 </script>
 
