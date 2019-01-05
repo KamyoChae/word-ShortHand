@@ -63,6 +63,8 @@ export default {
                this.$store.dispatch("checkState", num)
             }else{
                 this.mapIndex = this.mapLength-1
+                this.$router.push("/result")
+                this.$store.dispatch("resultFinish")
             }
 
         }

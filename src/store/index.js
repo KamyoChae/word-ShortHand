@@ -7,7 +7,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state : {
-        pingModel:false,
+        pingModel:false, // 单词拼写模态框
         showModel:false, // 是否显示模态框
         str:"", // 字符串
         wantCreateWord: false, // 是否想创建词汇
@@ -31,6 +31,9 @@ export default new Vuex.Store({
         }, // 渲染存储对象
         timer:null, // 走神计时
         timeCount:0, // 走神临界
+        result:false, // 结果显示界面
+        timeNum:0, // 使用计时
+        showTimeLong:0, // 结束显示计时
     },
     actions:{
         changeModel(ctx, str){
@@ -72,6 +75,12 @@ export default new Vuex.Store({
         },
         clearTimer(ctx){
             ctx.commit("clearTimer")
+        },
+        resultFinish(ctx){
+            ctx.commit("resultFinish")
+        },
+        getTimeNum(ctx, num){
+            ctx.commit("getTimeNum", num)
         }
     },
     mutations:{
@@ -89,6 +98,8 @@ export default new Vuex.Store({
             state.pingModel = false
             state.str = ""
             state.wantCreateWord = false
+            state.result = false
+            state.timeNum = 0
             // state.wordStr = "" // 这里会进行一个本地存储的读取作为初始化
 
             // 加载题库 开始计时
@@ -120,6 +131,7 @@ export default new Vuex.Store({
         },
         clearTimer(state){
             clearInterval(state.timer)
+            state.showTimeLong = state.timeNum
         },
         closeModel(state){
             console.log("隐藏")
@@ -159,6 +171,12 @@ export default new Vuex.Store({
             state.struct[index]["inputError"] = state.struct[index].inputError + 1 
             // console.log(state.struct[index]["isOK"])
             state.structItem = state.struct[index]
+        },
+        resultFinish(state){
+            state.result = true
+        },
+        getTimeNum(state, num){
+            state.timeNum = num
         }
     }
 })

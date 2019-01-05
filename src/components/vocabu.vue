@@ -8,7 +8,7 @@
         <VoCount/>
         <VoLine :index = "index" :length = "length"/>
         <VoState :index = "index" :length = "length"/>
-        <VoTime :time = "timeNum" />
+        <VoTime />
     </div>
 
 </template>
@@ -29,8 +29,7 @@ export default {
     name:"vocabu",
     data(){
         return{
-            timeNum:1,
-            timer:null,
+            
             index:0,
             length:0,
             word:"",
@@ -49,11 +48,7 @@ export default {
         VoTime
     },
     methods: {
-        timing(){
-            this.timer = setInterval(()=>{
-                this.timeNum++ 
-            }, 1000)
-        },
+
 
         createDataStruct(arr){
             let newArr = []
@@ -80,7 +75,7 @@ export default {
 
         console.log("star timer")
         this.$store.dispatch("initModel")
-        this.timing()
+     
 
         console.log("vacabu mounted-structItem:" , this.$store.state.structItem)
         try {

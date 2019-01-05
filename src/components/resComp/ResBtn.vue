@@ -1,12 +1,20 @@
 <template>
     <div class="wrapper">
-        <button>不服？再来！</button>
+        <button @click = "again">不服？再来！</button>
     </div>
 </template>
 
 <script>
 export default {
-    name:"ResBtn"
+    name:"ResBtn",
+    data(){
+        return{}
+    },
+    methods: {
+        again(){
+            this.$store.dispatch("changeModel","确定再来一遍吗？")
+        }
+    },
 }
 </script>
 

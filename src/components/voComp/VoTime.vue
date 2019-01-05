@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper">
-        {{time}}s
+        {{timeNum}}s
     </div>
 </template>
 
@@ -8,6 +8,23 @@
 export default {
     name:"VoTime",
     props:["time"],
+    data(){
+        return {
+            timer:null,
+            timeNum:1
+        }
+    },
+    methods: {
+        timing(){
+            this.timer = setInterval(()=>{
+                this.timeNum++ 
+                this.$store.dispatch("getTimeNum", this.timeNum)
+            }, 1000)
+        },
+    },
+    mounted() {
+        this.timing()
+    },
 
 }
 </script>
