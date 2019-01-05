@@ -37,9 +37,7 @@ export default {
             this.$store.dispatch("getWord", this.wordStr)
         }
     },
-    mounted() {
-
-        console.log("装载："+this.$store.state.showModel)
+    mounted() { 
         this.$store.dispatch("initModel")
     },
 }

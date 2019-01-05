@@ -38,22 +38,22 @@
                     
                     <span class="text">拼错次数</span>
                     <div> 
-                        <span class="num error">{{this.$store.state.structItem.inputError}}</span>
+                        <span class="num error">{{this.$store.state.inputErr}}</span>
                         <span class="text">次</span>
                     </div>
                 </div>
                 <div class="count-item">
                     <span class="text">放心次数</span>
                     <div>
-                        <span class="num success">{{this.$store.state.structItem.isOK}}</span>
+                        <span class="num success">{{this.$store.state.clickOk}}</span>
                         <span class="text">次</span>
                     </div>
                     
                 </div>
                 <div class="count-item">
-                    <span class="text">走神次数</span>
+                    <span class="text">走神总数</span>
                     <div>
-                        <span class="num danger">{{this.$store.state.structItem.lose}}</span>
+                        <span class="num danger">{{this.$store.state.timeAllLose}}</span>
                         <span class="text">次</span>
                     </div>
                 </div>
@@ -77,11 +77,11 @@ export default {
         console.log(this.$store.state.structItem)
         this.result = this.$store.state.result
 
-        console.log(location.hash)
         let hash = location.hash
         if(hash == "#/result"){
+            console.log(hash)
             this.result = true
-            this.$store.dispatch("clearTimer")
+            this.$store.dispatch("clearTimer") 
         }
 
     },

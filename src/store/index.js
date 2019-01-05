@@ -1,40 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex' 
-// import state from './store_components/state'
+import state from './store_components/state'
 // import actions from './store_components/actions'
 // import mutations from './store_components/mutation'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-    state : {
-        pingModel:false, // 单词拼写模态框
-        showModel:false, // 是否显示模态框
-        str:"", // 字符串
-        wantCreateWord: false, // 是否想创建词汇
-        wordStr:"", // 输入的字符串
-        struct:[{
-            "des":"hello",
-            "word":"hello",
-            "inputError":0,
-            "isOK":0,
-            "lose":0,
-            "index":0
-
-        }], // 数据结构
-        structItem:{
-            "des":"hello",
-            "word":"hello",
-            "inputError":0,
-            "isOK":0,
-            "lose":0,
-            "index":0
-        }, // 渲染存储对象
-        timer:null, // 走神计时
-        timeCount:0, // 走神临界
-        result:false, // 结果显示界面
-        timeNum:0, // 使用计时
-        showTimeLong:0, // 结束显示计时
-    },
+    state, // 数据结构
+    
     actions:{
         changeModel(ctx, str){
             ctx.commit("changeModel", str)
@@ -81,7 +54,10 @@ export default new Vuex.Store({
         },
         getTimeNum(ctx, num){
             ctx.commit("getTimeNum", num)
-        }
+        },
+        resultFinish(ctx){
+            ctx.commit("clearTimer")
+        }, 
     },
     mutations:{
         changeModel(state, str){
@@ -93,6 +69,7 @@ export default new Vuex.Store({
             state.showModel = false
         },
         initModel(state){
+            console.log("initModel")
             // 初始化数据 全部默认
             state.showModel = false
             state.pingModel = false
@@ -104,16 +81,29 @@ export default new Vuex.Store({
 
             // 加载题库 开始计时
             let init = "init"
-            this.commit("loseFace", init)
+            
+            let hash = location.hash
+            if(hash == "#/vocabu"){ 
+                this.commit("loseFace", init)
+            }
+            
+            if(hash == "#/result"){
+                console.log(hash)
+                this.result = true 
+                clearInterval(state.timer)
+            }
+
         },
         setTimer(state){
+            console.log("计算走神")
             state.timer = setInterval(() => {
                 state.timeCount ++ 
-                if(state.timeCount == 35){
+                console.log(state.timeCount)
+                if(state.timeCount == 3){
                     // 走神一次
                     var index = state.structItem.index
-                    console.log(index)
                     state.struct[index]["lose"] = state.struct[index].lose + 1
+                    state.timeAllLose ++ // 总计走神
                     state.structItem = state.struct[index]
                     state.timeCount = 0
                 }
@@ -121,6 +111,7 @@ export default new Vuex.Store({
         },
         loseFace(state, init){
             
+
             if(init == "init"){
                 this.commit("setTimer", state)
             }
@@ -130,7 +121,8 @@ export default new Vuex.Store({
             }
         },
         clearTimer(state){
-            clearInterval(state.timer)
+            clearInterval(state.timer) 
+            console.log("clearTimer")
             state.showTimeLong = state.timeNum
         },
         closeModel(state){
@@ -158,16 +150,19 @@ export default new Vuex.Store({
             
         },
         _createStructItem(state, index){
- 
+            
             state.structItem = state.struct[index]
-            // console.log(state.struct[index])
+            console.log(state.struct[index])
         },
         clickOk(state, index){ 
             state.struct[index]["isOK"] = state.struct[index].isOK + 1 
+            state.clickOk ++
             // console.log(state.struct[index]["isOK"])
             state.structItem = state.struct[index]
         },
         submitErr(state, index){
+
+            state.inputErr ++
             state.struct[index]["inputError"] = state.struct[index].inputError + 1 
             // console.log(state.struct[index]["isOK"])
             state.structItem = state.struct[index]
@@ -177,6 +172,7 @@ export default new Vuex.Store({
         },
         getTimeNum(state, num){
             state.timeNum = num
-        }
+        },
+
     }
 })

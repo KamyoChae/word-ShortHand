@@ -3,10 +3,10 @@
         <ShowModel/>
         <PingModel/>
         <IndexTitle/>
-        <VocaVo :word="word" :des="des"/>
+        <VocaVo/>
         <VoPing/>
         <VoCount/>
-        <VoLine :index = "index" :length = "length"/>
+        <VoLine/>
         <VoState :index = "index" :length = "length"/>
         <VoTime />
     </div>
@@ -66,18 +66,15 @@ export default {
                     newObj["index"] = index  
                     newArr.push(newObj) 
                 }
-            });
-            console.log(newArr)
+            }); 
+            
             return newArr
         }
     },
     mounted() {
-
-        console.log("star timer")
+ 
         this.$store.dispatch("initModel")
-     
-
-        console.log("vacabu mounted-structItem:" , this.$store.state.structItem)
+      
         try {
             this.index = this.$store.state.structItem.index
             this.length = this.$store.state.struct.length
@@ -85,18 +82,14 @@ export default {
             this.des = this.$store.state.structItem.des
         } catch (error) {
             
-        }
-
-        console.log(this.index, this.length)
+        } 
     },
     destroyed() {
         clearInterval(this.timer)
     },
-    beforeMount() {
-        console.log("beforeMount")
+    beforeMount() { 
         try {
-            let str = this.$store.state.wordStr
-            console.log("输入框的字符串已提出")
+            let str = this.$store.state.wordStr 
             var arr = str.split("。") 
         } catch (error) { 
         }
@@ -105,17 +98,7 @@ export default {
         this.$store.dispatch("createdStruct", Struct)
          
     },
-    updated() {
-        console.log("update")
-        try {
-            this.index = this.$store.state.structItem.index
-            this.length = this.$store.state.struct.length
-            this.word = this.$store.state.structItem.word
-            this.des = this.$store.state.structItem.des
-        } catch (error) {
-            
-        }
-    },
+ 
   
 
 }

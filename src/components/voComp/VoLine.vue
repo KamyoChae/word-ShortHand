@@ -1,14 +1,13 @@
 <template>
     <div class="wrapper">
         <span>当前进度</span>
-        <div>{{index +1}} / {{length}}</div>
+        <div>{{this.$store.state.structItem.index+1}} / {{this.$store.state.struct.length}}</div>
     </div>
 </template>
 
 <script>
 export default {
-    name:"VoLine",
-    props:["index", "length"],
+    name:"VoLine", 
     date(){
         return{ 
         }

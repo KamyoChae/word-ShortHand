@@ -1,18 +1,17 @@
 <template>
     <div class="wrapper">
         <div class="vocabu-en">
-            {{word}}
+            {{this.$store.state.structItem.word}}
         </div>
         <div class="vocabu-zh">
-            {{des}}
+            {{this.$store.state.structItem.des}}
         </div>  
     </div>
 </template>
 
 <script>
 export default {
-    name:"VocaVo",
-    props:["word","des"],
+    name:"VocaVo", 
     data(){
         return{ 
         }

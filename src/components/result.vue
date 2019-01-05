@@ -27,10 +27,9 @@ export default {
         VoCount, 
         ResBtn,
     },
-    mounted() {
-
-        console.log("装载："+this.$store.state.showModel)
+    mounted() { 
         this.$store.dispatch("initModel")
+        
     },
 }
 </script>
