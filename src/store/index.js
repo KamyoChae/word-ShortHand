@@ -99,7 +99,7 @@ export default new Vuex.Store({
             state.timer = setInterval(() => {
                 state.timeCount ++ 
                 console.log(state.timeCount)
-                if(state.timeCount == 3){
+                if(state.timeCount == 35){
                     // 走神一次
                     var index = state.structItem.index
                     state.struct[index]["lose"] = state.struct[index].lose + 1
