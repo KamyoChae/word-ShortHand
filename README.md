@@ -17,6 +17,7 @@ npm run build
 npm run build --report
 ```
 
+[查看WEBAPP](https://kamyochae.github.io/word-ShortHand/.)
 
 # word-ShortHand
 一款单词速记小工具
@@ -33,3 +34,11 @@ npm run build --report
 ![](https://github.com/KamyoChae/word-ShortHand/blob/master/1%20(3).png)
 # 重新测试一遍
 ![](https://github.com/KamyoChae/word-ShortHand/blob/master/1%20(1).png)
+
+
+目前待完善
+  - 本地存储词库
+  - 随机词库
+  - 易错词库
+  - UI交互
+  - PWA优化
