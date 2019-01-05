@@ -6,6 +6,9 @@ export default {
     wordStr: "", // 输入的字符串
     timer: null, // 走神计时
     timeCount: 0, // 走神临界
+    timeAllLose:0, // 总计走神
+    inputErr:0, // 
+    clickOk:0, // 放心次数
     result: false, // 结果显示界面
     timeNum: 0, // 使用计时
     showTimeLong: 0, // 结束显示计时

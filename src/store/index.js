@@ -7,7 +7,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state, // 数据结构
-    
+ 
     actions:{
         changeModel(ctx, str){
             ctx.commit("changeModel", str)
