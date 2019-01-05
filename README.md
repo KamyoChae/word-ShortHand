@@ -23,15 +23,13 @@ npm run build --report
 
 # 首页 可以直接粘贴格式生成题库  issues 写了个简单的算法
 ![](https://github.com/KamyoChae/word-ShortHand/blob/master/1%20(5).png)
-
 # 单词
-![](https://github.com/KamyoChae/word-ShortHand/blob/master/1%20(4).png)
+![](https://github.com/KamyoChae/word-ShortHand/blob/master/1%20(1).jpg)
 # 单词
 ![](https://github.com/KamyoChae/word-ShortHand/blob/master/1%20(2).png)
 # 拼写
-![](https://github.com/KamyoChae/word-ShortHand/blob/master/1%20(1).png)
-
+![](https://github.com/KamyoChae/word-ShortHand/blob/master/1%20(4).png)
 # 速记结束
 ![](https://github.com/KamyoChae/word-ShortHand/blob/master/1%20(3).png)
 # 重新测试一遍
-![](https://github.com/KamyoChae/word-ShortHand/blob/master/1%20(1).jpg)
+![](https://github.com/KamyoChae/word-ShortHand/blob/master/1%20(1).png)
